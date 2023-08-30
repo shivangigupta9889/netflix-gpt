@@ -1,13 +1,21 @@
+import { useEffect } from "react";
+import { API_OPTIONS } from "../utils/constants";
+import Header from "./Header";
+
 const Browse =()=>{
+    const getNowPlayingMovies=async()=>{
+
+        const data =await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', API_OPTIONS);
+        const json=await data.json()
+        console.log(json.results)
+    }
+    useEffect(()=>{
+        getNowPlayingMovies();
+    },[])
     return(
         <div>
-            <div>
-           <form className="w-3/12 p-12 relative bg-black">
-            <input type="text" placeholder="Email or Mobile Number" className="p-2 m-2"/>
-            <input type="password" placeholder="Password" className="p-2 m-2"/>
-            <button className="p-4 m-4">Sign In</button>
-           </form>
-           </div>
+            <Header/>
+            
         </div>
     )
 }
