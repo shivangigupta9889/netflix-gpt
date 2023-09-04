@@ -8,7 +8,7 @@ import { LOGO } from "../utils/constants";
 // import userEvent from "@testing-library/user-event";
 const Header = () => {
   const navigate = useNavigate();
-  const user = useSelector(store=>store.user);
+  const user = useSelector((store)=>store.user);
   const dispatch= useDispatch();
 
   const handleSignOut = () => {
@@ -42,7 +42,7 @@ const Header = () => {
   []);
 
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b w-screen from-black flex justify-between">
+    <div className="absolute px-8 py-2 bg-gradient-to-b w-screen z-10 from-black flex justify-between">
       <img
         className="w-44"
         src={LOGO}
